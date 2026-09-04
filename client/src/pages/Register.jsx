@@ -16,7 +16,10 @@ function Register() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post(
+        "https://https://jwt-authentication-system-1-9ghz.onrender.com.onrender.com/api/auth/register",
+        form,
+      );
 
       alert("Registration Successful");
       navigate("/login");
