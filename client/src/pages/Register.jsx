@@ -16,15 +16,24 @@ function Register() {
     e.preventDefault();
 
     try {
-      await axios.post(
+      const res = await axios.post(
         "https://jwt-authentication-system-1-9ghz.onrender.com/api/auth/register",
         form,
       );
 
+      console.log("SUCCESS:", res.data);
+
       alert("Registration Successful");
+
       navigate("/login");
     } catch (error) {
-      alert("Registration Failed");
+      console.log("FULL ERROR:", error);
+      console.log("RESPONSE:", error.response);
+      console.log("DATA:", error.response?.data);
+
+      alert(
+        error.response?.data?.message || "Registration Failed. Check Console.",
+      );
     }
   };
 
@@ -38,6 +47,7 @@ function Register() {
           <input
             type="text"
             placeholder="Full Name"
+            value={form.name}
             onChange={(e) =>
               setForm({
                 ...form,
@@ -49,6 +59,7 @@ function Register() {
           <input
             type="email"
             placeholder="Email"
+            value={form.email}
             onChange={(e) =>
               setForm({
                 ...form,
@@ -60,6 +71,7 @@ function Register() {
           <input
             type="password"
             placeholder="Password"
+            value={form.password}
             onChange={(e) =>
               setForm({
                 ...form,
