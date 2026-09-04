@@ -17,7 +17,7 @@ function Register() {
 
     try {
       await axios.post(
-        "https://https://jwt-authentication-system-1-9ghz.onrender.com.onrender.com/api/auth/register",
+        "https://jwt-authentication-system-1-9ghz.onrender.com/api/auth/register",
         form,
       );
 
